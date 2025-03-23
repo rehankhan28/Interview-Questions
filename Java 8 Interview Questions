@@ -65,7 +65,103 @@ They are lazy, meaning they don’t execute until a terminal operation is called
 They return another Stream<T>, allowing method chaining.
 They don't modify the original stream but create a transformed version.
 Examples of Intermediate Operations
+----------------------------------
+Common Intermediate Operations:
+----------------------------------
+filter(Predicate predicate):
 
+Keeps elements that match the given predicate (condition).
+Example:
+
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+List<Integer> evenNumbers = numbers.stream()
+    .filter(n -> n % 2 == 0)
+    .toList(); // or .collect(Collectors.toList()) before java 16.
+// evenNumbers: [2, 4, 6]
+----------------------------------
+map(Function mapper):
+
+Transforms each element using the provided function.
+Example:
+
+List<String> words = Arrays.asList("apple", "banana", "cherry");
+List<Integer> wordLengths = words.stream()
+    .map(String::length)
+    .toList(); // or .collect(Collectors.toList()) before java 16.
+// wordLengths: [5, 6, 6]
+----------------------------------
+flatMap(Function mapper):
+Used when transformation produces multiple values per input.
+Flattens the stream to a single level.
+Flattens nested collections or arrays into a single stream.
+Example:
+List<List<String>> nestedLists = Arrays.asList(
+    Arrays.asList("a", "b"),
+    Arrays.asList("c", "d")
+);
+List<String> flattenedList = nestedLists.stream()
+    .flatMap(List::stream)
+    .toList(); // or .collect(Collectors.toList()) before java 16.
+// flattenedList: [a, b, c, d]
+distinct():
+----------------------------------
+Removes duplicate elements.
+Example:
+
+List<Integer> numbers = Arrays.asList(1, 2, 2, 3, 3, 4);
+List<Integer> uniqueNumbers = numbers.stream()
+    .distinct()
+    .toList(); // or .collect(Collectors.toList()) before java 16.
+// uniqueNumbers: [1, 2, 3, 4]
+----------------------------------
+sorted() / sorted(Comparator comparator):
+
+Sorts the elements in natural order or using a custom comparator.
+Example:
+List<String> names = Arrays.asList("Charlie", "Alice", "Bob");
+List<String> sortedNames = names.stream()
+    .sorted()
+    .toList(); // or .collect(Collectors.toList()) before java 16.
+// sortedNames: [Alice, Bob, Charlie]
+----------------------------------
+limit(long maxSize):
+Limits the stream to the specified number of elements.
+Example:
+
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+List<Integer> limitedNumbers = numbers.stream()
+    .limit(3)
+    .toList(); // or .collect(Collectors.toList()) before java 16.
+// limitedNumbers: [1, 2, 3]
+----------------------------------
+skip(long n):
+
+Skips the specified number of elements from the beginning of the stream.
+Example:
+
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+List<Integer> skippedNumbers = numbers.stream()
+    .skip(2)
+    .toList(); // or .collect(Collectors.toList()) before java 16.
+// skippedNumbers: [3, 4, 5]
+----------------------------------
+peek(Consumer action):
+
+performs an action on each element as elements are consumed from the resulting stream. Primarily useful to support debugging.
+Example:
+----------------------------------
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+List<Integer> peekedNumbers = numbers.stream()
+    .peek(System.out::println)
+    .toList();
+//output: 1, 2, 3, 4, 5.
+---------------------------------------------------------------------------
+Terminal Operations
+Definition: These operations consume the stream and produce a result or a side effect.
+Characteristics:
+They trigger intermediate operations.
+Once a terminal operation is executed, the stream cannot be reused.
+They return non-stream values like List<T>, Optional<T>, int, etc.
 ---------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------
