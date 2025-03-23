@@ -1,0 +1,123 @@
+==============================
+	Program of Array
+==============================
+int a[] = { 12 , 12, 21, 223, 223, 12, 21 };
+=====================
+Find the sum of all elements in an array.
+Find the largest element in an array.
+Find the smallest element in an array.
+Reverse an array.
+Check if an array contains a specific value.
+Find the index of a specific element in an array.
+Count the number of even and odd numbers in an array.
+Find the second largest element in an array.
+Find the second smallest element in an array.
+Remove duplicates from an array.
+Find the frequency of each element in an array.
+Sort an array in ascending or descending order.
+Merge two sorted arrays into a single sorted array.
+Find the intersection of two arrays.
+Find the union of two arrays.
+Rotate an array to the left or right by a given number of positions.
+Find the maximum and minimum element in an array using the minimum number of comparisons.
+Find the kth largest element in an array.
+Find the kth smallest element in an array.
+Find all pairs of integers in an array whose sum is equal to a given number.
+Find the missing number in an array of integers from 1 to N.
+Find the duplicate number in an array of integers from 1 to N.
+Find the subarray with the maximum sum (Kadane's Algorithm).
+Find the longest increasing subsequence in an array.
+Find the longest subarray with a given sum.
+Find the smallest positive integer missing from an unsorted array.
+Find the majority element in an array (appears more than n/2 times).
+Find the equilibrium index of an array (where the sum of elements on the left equals the sum on the right).
+Find the maximum product of a subarray.
+Find the minimum number of jumps to reach the end of an array.
+==============================
+By Merging Two Array
+int a[] = { 12, 21, 223, 12, 21 };
+int a[] = { 121, 2, 3, 4, 12, 21 };
+==============================
+Sum Of All Numbers
+
+Sum of Even/Odd Numbers
+
+Average Of All Numbers
+Square, Filter and Average of Numbers
+Even & Odd Numbers using Streams
+Numbers Starts With Prefix 2 using Streams
+Duplicate Numbers using Streams
+Min & Max
+Get/ignore first 5 numbers using Limit & Skip in Streams
+Get Second Highest/Lowest Number using Streams
+==============================
+	Program of String
+==============================
+Filter the data According to Department
+
+Filter the data according to salary (Sort)
+
+Find the duplicate words and their number of occurrences in a string
+
+Count the number of words in a string
+
+Count the total number of occurrences of a given character in a string without using any loop
+
+Find the first non repeating character in a string
+
+Reverse a string
+
+Reverse each word of a given string
+
+Convert string to integer and integer to string
+
+Prove that strings are immutable
+
+Find all permutations of a string
+
+Find first repeated and non-repeated character in the given string
+
+Palindrome the String
+
+Remove all vowels from a string
+
+To print all sub strings of a string
+
+==========================================
+ Interview Questions on Employee Salary
+==========================================
+Print the Name of All Departments in the Organization
+
+Group the Employees by City
+
+Group the Employees by Age
+
+Print Employee Details Whose Age Is Greater Than 28
+
+Find Maximum Age of Employee
+
+Print Average Age of Male and Female Employees
+
+Print the Number of Employees in Each Department
+
+Find Oldest Employee
+
+Find Youngest Female Employee
+
+Find the Department Name Which Has the Highest Number of Employees
+
+Find the Average Salary of Each Department
+
+Find if There Any Employees From HR Department
+
+Highest Experienced Employees in the Organization
+
+Print Average and Total Salary of the Organization
+
+Find Highest Salary in the Organisation
+
+Find Second Highest Salary in the Organisation
+
+Sort the Employees Salary in the Organisation in Ascending Order
+
+Sort the Employees Salary in the Organisation in Descending Order
