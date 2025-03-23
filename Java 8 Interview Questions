@@ -1,1 +1,89 @@
+        New features introduced in Java 8?
+==========================================================
+Lambda expressions
+Stream API
+Functional interfaces
+Default and static methods in interfaces
+Method references
+Optional class
+New Date and Time API (java.time package)
+Nashorn JavaScript engine
+==========================================================
+==========================================================
 
+                Lambda expressions
+
+==========================================================
+==========================================================
+A lambda expression in Java is a concise way to represent an anonymous function (a function without a name) that can be passed around as a value.
+Lambda expressions were introduced in Java 8 and are a key feature of functional programming in Java. 
+They are commonly used with functional interfaces (interfaces with a single abstract method).
+
+==========================================================
+==========================================================
+               Functional interface
+==========================================================
+==========================================================
+A functional interface is an interface with exactly one abstract method. Examples include Runnable, Comparator, and Consumer. 
+Java 8 introduced the @FunctionalInterface annotation to mark such interfaces.
+
+What are the built-in functional interfaces in Java 8?
+---------------------------------------------------------------------------
+Predicate<T>: Represents a boolean-valued function (e.g., x -> x > 5).
+
+Consumer<T>: Represents an operation that accepts a single input and returns no result (e.g., x -> System.out.println(x)).
+
+Function<T, R>: Represents a function that accepts one argument and produces a result (e.g., x -> x * 2).
+
+Supplier<T>: Represents a supplier of results (e.g., () -> "Hello").
+---------------------------------------------------------------------------
+What is the difference between a lambda expression and an anonymous class?
+
+Lambda expressions are more concise and do not create a new class file at compile time.
+
+Anonymous classes are more verbose and create a new class file.
+---------------------------------------------------------------------------
+What is the Stream API in Java 8?
+
+The Stream API is used to process collections of objects in a functional style. It supports operations like filter, map, reduce, and collect.
+---------------------------------------------------------------------------
+What is the difference between Collection and Stream?
+
+Collection: A data structure that holds elements (e.g., List, Set).
+
+Stream: A sequence of elements supporting sequential and parallel aggregate operations (e.g., filter, map, reduce).
+---------------------------------------------------------------------------
+What are intermediate and terminal operations in the Stream API?
+
+Intermediate operations: Operations like filter, map, and sorted that return a new stream.
+
+Terminal operations: Operations like forEach, collect, and reduce that produce a result or side-effect.
+Intermediate Operations
+Definition: These operations process the data and return a new stream.
+Characteristics:
+They are lazy, meaning they don’t execute until a terminal operation is called.
+They return another Stream<T>, allowing method chaining.
+They don't modify the original stream but create a transformed version.
+Examples of Intermediate Operations
+
+---------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
