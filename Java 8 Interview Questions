@@ -19,6 +19,38 @@ A lambda expression in Java is a concise way to represent an anonymous function 
 Lambda expressions were introduced in Java 8 and are a key feature of functional programming in Java. 
 They are commonly used with functional interfaces (interfaces with a single abstract method).
 
+Thread With Lambada Expression
+------------------------
+
+public class HelloWorldLambda {
+    public static void main(String[] args) {
+        Runnable hello = () -> System.out.println("Hello, World!");
+        hello.run(); // Executing the lambda expression
+    }
+}
+
+------------------------
+package com.practice.fun;
+
+public class LambadaFun {
+	public static void main(String[] args) {
+		Runnable r1 = () -> {
+			for (int i = 0; i < 5; i++) {
+				Thread t = Thread.currentThread();
+				System.out.println(i + "\t\t" + t.getName());
+				try {
+					Thread.sleep(1200);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		};
+		Thread th = new Thread(r1);
+		th.start();
+	}
+}
+------------
+
 ==========================================================
 ==========================================================
                Functional interface
@@ -26,7 +58,7 @@ They are commonly used with functional interfaces (interfaces with a single abst
 ==========================================================
 A functional interface is an interface with exactly one abstract method. Examples include Runnable, Comparator, and Consumer. 
 Java 8 introduced the @FunctionalInterface annotation to mark such interfaces.
-
+---------------------------------------------------------------------------
 What are the built-in functional interfaces in Java 8?
 ---------------------------------------------------------------------------
 Predicate<T>: Represents a boolean-valued function (e.g., x -> x > 5).
