@@ -10,8 +10,53 @@ Reverse an array.
 Check if an array contains a specific value.
 Find the index of a specific element in an array.
 Count the number of even and odd numbers in an array.
+--------------------
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+        int a[] = { 15 , 12,32, 21, 223, 223, 12, 21 };
+        Object[] naturalsort =Arrays.stream(a).boxed().distinct().sorted().toArray();
+        System.out.println("Natural Sorted : " + Arrays.toString(naturalsort));
+	//Reverse Sort
+        Object[] reversesort =Arrays.stream(a).boxed().distinct().sorted(Comparator.reverseOrder()).toArray();
+        System.out.println("Revserse Sorted : " + Arrays.toString(reversesort));
+	
+	//Sum
+        int sum= Arrays.stream(a).sum();
+        System.out.println("Sum : " + sum);
+	
+	//Maximum
+        int max=Arrays.stream(a).max().getAsInt();
+        System.out.println("Max : " + max);
+	
+	//Second Maximum
+        int secondmax=Arrays.stream(a).boxed().distinct().sorted(Comparator.reverseOrder()).collect(Collectors.toList()).get(1);
+        System.out.println("Second Max : " + secondmax);
+	
+	//Minimum
+        int min=Arrays.stream(a).min().getAsInt();
+        System.out.println("Min : " + min);
+		
+	//Find the second smallest element in an array.
+        int secondmin=Arrays.stream(a).boxed().distinct().sorted().collect(Collectors.toList()).get(1);
+        System.out.println("Second Min : " + secondmin);
+	
+	//Even Number
+        int even[]=Arrays.stream(a).filter(e->e%2==0).distinct().toArray();
+        System.out.println("Even : " +Arrays.toString(even));
+	
+	//Odd Numbers
+        int odd[]=Arrays.stream(a).filter(e->e%2!=0).distinct().toArray();
+        System.out.println("Odd : " +Arrays.toString(odd));
+    }
+}
+--------------------
 Find the second largest element in an array.
-Find the second smallest element in an array.
+
 Remove duplicates from an array.
 Find the frequency of each element in an array.
 Sort an array in ascending or descending order.
