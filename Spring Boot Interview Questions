@@ -1,1 +1,102 @@
 
+
+@SpringBootApplication
+Combines:
+@Configuration: Marks as a configuration class.
+@EnableAutoConfiguration: Enables auto-configuration.
+@ComponentScan: Scans for components in the package.
+---------------------
+@Controller (Traditional MVC)
+Designed for server-side rendering (returns view names).
+Requires @ResponseBody annotation on methods to return data directly.
+Uses ViewResolvers to render HTML templates.
+
+@RestController (REST APIs)----@Controller + @ResponseBody
+Specialized version of @Controller for RESTful services.
+All methods automatically include @ResponseBody.
+Returns data directly as JSON/XML (no view resolution).
+---------------------
+@Component
+Generic annotation for any Spring-managed component.
+
+@Service
+Specialized @Component for service layer.
+
+@Repository
+Specialized @Component for the persistence layer (DAO).
+
+@Controller
+Specialized @Component for MVC controllers.
+
+@RestController
+Combination of @Controller and @ResponseBody.
+
+@Bean
+Used to define a Spring-managed bean inside a @Configuration class.
+@GetMapping, @PostMapping, @PutMapping, @DeleteMapping
+Simplifies mapping HTTP methods to controller methods.
+
+java
+Copy
+Edit
+@RestController
+@RequestMapping("/api")
+public class UserController {
+
+    @GetMapping("/users")
+    public List<User> getUsers() {
+        return List.of(new User("John", 25));
+    }
+
+    @PostMapping("/users")
+    public String addUser(@RequestBody User user) {
+        return "User added successfully!";
+    }
+}
+5. Exception Handling Annotations
+@ExceptionHandler
+Handles exceptions at the controller level.
+
+@ControllerAdvice
+Global exception handling for all controllers.
+
+java
+Copy
+Edit
+@ControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<String> handleException(Exception e) {
+        return new ResponseEntity<>("Error: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+}
+
+@Value
+Injects values from application.properties.
+
+@ConfigurationProperties
+Binds properties to a Java class.
+
+@Entity
+Marks a class as a JPA entity.
+
+@Table
+Defines the table name for the entity.
+
+@Id & @GeneratedValue
+Specifies the primary key.
+
+@Column
+Maps a field to a column.
+
+@Transactional
+Ensures method execution is transactional.
+
+@PreAuthorize
+Restricts method execution based on roles.
+
+@Scheduled
+Runs a method on a schedule.
+
+---------------------
