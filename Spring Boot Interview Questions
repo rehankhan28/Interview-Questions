@@ -99,4 +99,73 @@ Restricts method execution based on roles.
 @Scheduled
 Runs a method on a schedule.
 
+@EnableCaching
+Enables caching in the application.
+
+@Cacheable
+Caches the result of a method.
+
+@CacheEvict
+Removes an entry from the cache.
+
+@PropertySource
+Loads a properties file.
+
+@Profile
+Enables beans based on the active profile.
+
+@ServerEndpoint
+Defines a WebSocket server endpoint.
+
+@Endpoint
+Defines a custom actuator endpoint.
+
+@ConditionalOnProperty
+Loads a bean based on a property.
+
+@ConditionalOnMissingBean
+Loads a bean only if another bean is missing.
+
+@SpringBootTest
+Loads the entire application context for testing.
+
+@MockBean
+Creates a mock of a bean.
+
+@WebMvcTest
+Used for testing controllers.
 ---------------------
+. Mention a few features of Spring Boot.
+Few important features of Spring Boot are as follows:
+1.	Spring CLI – Spring Boot CLI allows you to Groovy for writing Spring boot application and avoids boilerplate code.
+2.	Starter Dependency – With the help of this feature, Spring Boot aggregates common dependencies together and eventually improves productivity
+3.	Auto-Configuration – The auto-configuration feature of Spring Boot helps in loading the default configurations according to the project you are working on. In this way, you can avoid any unnecessary WAR files.
+4.	Spring Initializer – This is basically a web application, which can create an internal project structure for you. So, you do not have to manually set up the structure of the project, instead, you can use this feature.
+5.	Spring Actuator – This feature provides help while running Spring Boot applications.
+6.	Logging and Security – The logging and security feature of Spring Boot, ensures that all the applications made using Spring Boot are properly secured without any hassle.
+7.	Spring Initializr - is a web-based tool that helps developers bootstrap new Spring Boot projects quickly by generating a project structure with the desired dependencies and configurations
+--------------------------
+What is the need for Spring Boot DevTools?
+1. Automatic Restart
+DevTools provides an automatic restart feature that triggers a restart of the application whenever files on the classpath change. This allows developers to see their changes reflected immediately without manually restarting the application, significantly speeding up the development process.
+2. LiveReload Support
+The module includes an embedded LiveReload server that can automatically refresh the browser whenever resources are updated. This feature eliminates the need to manually refresh the browser, improving productivity during front-end development.
+3. Disabling Caching
+During development, caching can prevent developers from seeing their changes immediately. DevTools automatically disables caching for template engines like Thymeleaf and Freemarker, ensuring that developers always see the latest changes without needing to configure cache settings manually.
+4. Improved Configuration Management
+DevTools simplifies configuration management by providing sensible defaults for various properties during development. For instance, it disables certain caching options and automatically applies settings that enhance the development experience.
+5. Global Settings Configuration
+Developers can create a global settings file (.spring-boot-devtools.properties) in their home directory to apply common configurations across all Spring Boot applications using DevTools. This reduces repetitive configuration efforts for new projects.
+----------------------------
+What do you think is the need for Profiles?
+Profiles are used to provide a way to segregate the different parts of the application configuration and make it available for various environments. So, basically, any @Component or a @Configuration can be marked with a @Profile to limit as it is loaded. Consider you have multiple environments,
+•	Dev
+•	QA
+•	Stage
+•	Production
+Now, let’s say, you want to have different application configuration in each of the environments, you can use profiles to have different application configurations for different environments. So, basically, Spring and Spring Boot provide features through which you can specify:
+•	The active profile for a specific environment
+•	The configuration of various environments for various profiles.
+--------------------------------
+
+
