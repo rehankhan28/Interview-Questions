@@ -52,6 +52,9 @@ public class Main {
 	//Odd Numbers
         int odd[]=Arrays.stream(a).filter(e->e%2!=0).distinct().toArray();
         System.out.println("Odd : " +Arrays.toString(odd));
+	//Square
+ 	 int square[]=Arrays.stream(a).map(e->e*e).toArray();
+        System.out.println("Square Array : " + Arrays.toString(square));
     }
 }
 --------------------
