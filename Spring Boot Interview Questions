@@ -167,5 +167,216 @@ Now, let’s say, you want to have different application configuration in each o
 •	The active profile for a specific environment
 •	The configuration of various environments for various profiles.
 --------------------------------
+What is Spring Boot?
+A framework for creating standalone, production-grade Spring applications with minimal configuration.
+
+Advantages of Spring Boot?
+
+Auto-configuration
+
+Embedded servers (Tomcat/Jetty)
+
+Starter dependencies
+
+No XML configuration
+
+Actuator for monitoring
+
+What is @SpringBootApplication?
+A combination of:
+
+@Configuration (class as config source)
+
+@EnableAutoConfiguration (auto-configuration)
+
+@ComponentScan (auto-detection of components)
+
+Embedded Servers in Spring Boot?
+Tomcat (default), Jetty, or Undertow. Configure via pom.xml/build.gradle.
+
+What is Spring Boot Actuator?
+Provides production-ready features (health checks, metrics, env details) via endpoints like /actuator/health.
+
+Intermediate Questions
+How to change the embedded server port?
+server.port=8081 in application.properties.
+
+Difference between @Controller and @RestController?
+
+@Controller: Returns view names (MVC).
+
+@RestController: Returns JSON/XML (REST APIs, combines @Controller + @ResponseBody).
+
+What is application.properties vs application.yml?
+Both configure app properties. YAML is more readable for hierarchical data.
+
+How to exclude auto-configuration?
+
+java
+Copy
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+What is Spring Boot DevTools?
+Developer tools for auto-restart, live reload, and property defaults.
+
+Dependency Injection & Beans
+What is @Autowired?
+Injects dependencies automatically (by type).
+
+Difference between @Component, @Service, @Repository?
+All are stereotypes:
+
+@Repository (DAO layer, translates DB exceptions)
+
+@Service (business logic)
+
+@Component (generic Spring-managed bean)
+
+What is @Bean?
+A method-level annotation to declare a Spring bean (used in @Configuration classes).
+
+What is @Primary?
+Indicates the preferred bean when multiple candidates exist for autowiring.
+
+Spring Boot Data & JPA
+What is Spring Data JPA?
+Simplifies JPA repositories (e.g., CrudRepository, JpaRepository).
+
+How to create a custom query in Spring Data JPA?
+
+java
+Copy
+@Query("SELECT u FROM User u WHERE u.email = ?1")
+User findByEmail(String email);
+What is @Transactional?
+Defines transaction boundaries (methods execute within a DB transaction).
+
+Difference between save() and saveAndFlush()?
+
+save(): Queues the operation.
+
+saveAndFlush(): Immediately writes to DB.
+
+REST & Web
+What is @RequestMapping?
+Maps HTTP requests to handler methods (superseded by @GetMapping, @PostMapping, etc.).
+
+How to handle exceptions in Spring Boot?
+Use @ControllerAdvice + @ExceptionHandler.
+
+What is CORS? How to enable it?
+Cross-Origin Resource Sharing. Enable via:
+
+java
+Copy
+@CrossOrigin(origins = "http://example.com")
+How to validate request bodies?
+Use @Valid on @RequestBody and JSR-303 annotations (@NotNull, @Size).
+
+Security
+How to secure a Spring Boot app?
+Use Spring Security (e.g., spring-boot-starter-security).
+
+What is JWT? How to implement it?
+JSON Web Token for stateless auth. Use libraries like jjwt.
+
+Difference between authentication and authorization?
+
+Authentication: Verifies identity (e.g., login).
+
+Authorization: Checks permissions (e.g., admin access).
+
+Advanced Questions
+How to externalize configuration?
+Use @ConfigurationProperties or @Value with application.properties.
+
+What is Spring Boot Actuator? Key endpoints?
+
+/health: App status
+
+/metrics: Performance metrics
+
+/env: Environment variables
+
+How to implement caching?
+Use @Cacheable, @CacheEvict with spring-boot-starter-cache.
+
+What is Spring Boot CLI?
+A command-line tool for rapid prototyping with Groovy scripts.
+
+How to profile environments (dev/prod)?
+Use application-dev.properties and activate with spring.profiles.active=dev.
+
+Microservices & Cloud
+What is Spring Cloud?
+Tools for building microservices (service discovery, config server, etc.).
+
+How to implement a Feign client?
+Declare an interface with @FeignClient to call REST APIs.
+
+What is Eureka?
+A service registry for microservices (part of Spring Cloud Netflix).
+
+Testing
+How to test Spring Boot apps?
+
+@SpringBootTest (integration tests)
+
+@WebMvcTest (controller tests)
+
+@DataJpaTest (JPA tests)
+
+What is MockMvc?
+A utility for testing controllers without starting a server.
+
+Performance & Best Practices
+How to improve Spring Boot performance?
+
+Use lazy initialization (spring.main.lazy-initialization=true).
+
+Enable caching.
+
+Avoid @Autowired on fields (use constructor injection).
+
+What is connection pooling?
+Reuses DB connections (e.g., HikariCP in Spring Boot).
+
+Troubleshooting
+How to debug Spring Boot startup issues?
+Enable debug logging (--debug flag) or check ConditionEvaluationReport.
+
+Common Spring Boot errors?
+
+BeanCreationException: Missing dependency.
+
+UnsatisfiedDependencyException: No qualifying bean.
+
+Recent Features (Spring Boot 2.x/3.x)
+What’s new in Spring Boot 3?
+
+Requires Java 17+
+
+Jakarta EE 9+ (javax → jakarta namespace)
+
+Improved observability with Micrometer
+
+What is reactive programming in Spring?
+Non-blocking apps with WebFlux and reactive repositories.
+
+Scenario-Based Questions
+How to upload files in Spring Boot?
+Use MultipartFile in a controller:
 
 
+@PostMapping("/upload")
+public String uploadFile(@RequestParam("file") MultipartFile file) { ... }
+How to schedule tasks?
+Use @Scheduled with @EnableScheduling.
+
+How to implement rate limiting?
+Use Spring Cloud Gateway or libraries like Bucket4j.
+
+How to handle versioning in REST APIs?
+
+URL path (/v1/users)
+
+Headers (Accept: application/vnd.company.v1+json)
