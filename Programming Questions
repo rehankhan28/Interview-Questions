@@ -96,6 +96,27 @@ Even & Odd Numbers using Streams
 Numbers Starts With Prefix 2 using Streams
 Duplicate Numbers using Streams
 Min & Max
+-----------
+package com.practice.fun;
+
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
+public class LambadaArray {
+	public static void main(String[] args) {
+		int a[] = { 12, 12, 21, 223, 223, 12, 21 };
+		int b[] = { 12, 222, 211, 112, 425, 354, 376 };
+		int max = IntStream.concat(Arrays.stream(a), Arrays.stream(b)).max().getAsInt();
+		int even[] = IntStream.concat(Arrays.stream(a), Arrays.stream(b)).filter(o -> o % 2 == 0).toArray();
+		double avg = IntStream.concat(Arrays.stream(a), Arrays.stream(b)).average().getAsDouble();
+		int square[] = IntStream.concat(Arrays.stream(a), Arrays.stream(b)).map(o -> o * o).toArray();
+		System.out.println("Square : " + Arrays.toString(square));
+		System.out.println("Average : " + avg);
+		System.out.println("Even : " + Arrays.toString(even));
+		System.out.println("Maximum : " + max);
+	}
+}
+----------
 Get/ignore first 5 numbers using Limit & Skip in Streams
 Get Second Highest/Lowest Number using Streams
 ==============================
