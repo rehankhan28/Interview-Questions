@@ -73,6 +73,25 @@ public static void main(String[] args) {
 	}
 }
 --------------------
+Count Frequency of String in an Array
+
+--------------------
+package com.practice.fun;
+
+import java.util.Arrays;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class SingleArray {
+	public static void main(String[] args) {
+		String[] words = { "apple", "banana", "apple", "orange", "banana", "apple" };
+		Map<String, Long> map = Arrays.stream(words)
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		map.forEach((w, c) -> System.out.println(w + "\t\t" + c));
+	}
+}
+--------------------
 Find the second largest element in an array.
 
 Remove duplicates from an array.
