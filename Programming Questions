@@ -92,7 +92,19 @@ public class SingleArray {
 }
 --------------------
 Find the second largest element in an array.
+--------------------
+package com.practice.fun;
+import java.util.Arrays;
+import java.util.Comparator;
+public class SingleArray {
+	public static void main(String[] args) {
+		int a[] = { 12, 21, 1212, 23, 43 };
+		int second = Arrays.stream(a).boxed().sorted(Comparator.reverseOrder()).skip(1).findFirst().get();
+		System.out.println(second);
+	}
+}
 
+--------------------
 Remove duplicates from an array.
 Find the frequency of each element in an array.
 Sort an array in ascending or descending order.
