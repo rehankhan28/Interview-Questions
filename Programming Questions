@@ -185,9 +185,6 @@ public class TwoArray {
 	}
 }
 --------------------
-Rotate an array to the left or right by a given number of positions.
-Find the kth largest element in an array.
-
 Find all pairs of integers in an array whose sum is equal to a given number.
 Find the missing number in an array of integers from 1 to N.
 Find the duplicate number in an array of integers from 1 to N.
