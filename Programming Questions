@@ -4,59 +4,61 @@
 int a[] = { 12 , 12, 21, 223, 223, 12, 21 };
 =====================
 Find the sum of all elements in an array.
+---------------------
+package com.practice.array;
+
+import java.util.Arrays;
+
+public class SingleArray {
+	public static void main(String[] args) {
+		int[] a = { 1, 2, 2, 3, 4, 4, 4, 5 };
+		int sum = Arrays.stream(a).sum();
+		System.out.println(sum);
+	}
+}
+---------------------
 Find the largest element in an array.
 Find the smallest element in an array.
+---------------------
+package com.practice.array;
+
+import java.util.Arrays;
+
+public class SingleArray {
+	public static void main(String[] args) {
+		int[] a = { 1, 2, 2, 3, 4, 4, 4, 5 };
+		int max = Arrays.stream(a).max().getAsInt();
+		System.out.println(max);
+		int min = Arrays.stream(a).min().getAsInt();
+		System.out.println(min);
+	}
+}
+---------------------
 Reverse an array.
-Check if an array contains a specific value.
-Find the index of a specific element in an array.
-Count the number of even and odd numbers in an array.
---------------------
+---------------------
+package com.practice.array;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Main {
-    public static void main(String[] args) {
-        int a[] = { 15 , 12,32, 21, 223, 223, 12, 21 };
-        Object[] naturalsort =Arrays.stream(a).boxed().distinct().sorted().toArray();
-        System.out.println("Natural Sorted : " + Arrays.toString(naturalsort));
-	//Reverse Sort
-        Object[] reversesort =Arrays.stream(a).boxed().distinct().sorted(Comparator.reverseOrder()).toArray();
-        System.out.println("Revserse Sorted : " + Arrays.toString(reversesort));
-	
-	//Sum
-        int sum= Arrays.stream(a).sum();
-        System.out.println("Sum : " + sum);
-	
-	//Maximum
-        int max=Arrays.stream(a).max().getAsInt();
-        System.out.println("Max : " + max);
-	
-	//Second Maximum
-        int secondmax=Arrays.stream(a).boxed().distinct().sorted(Comparator.reverseOrder()).collect(Collectors.toList()).get(1);
-        System.out.println("Second Max : " + secondmax);
-	
-	//Minimum
-        int min=Arrays.stream(a).min().getAsInt();
-        System.out.println("Min : " + min);
-		
-	//Find the second smallest element in an array.
-        int secondmin=Arrays.stream(a).boxed().distinct().sorted().collect(Collectors.toList()).get(1);
-        System.out.println("Second Min : " + secondmin);
-	
-	//Even Number
-        int even[]=Arrays.stream(a).filter(e->e%2==0).distinct().toArray();
-        System.out.println("Even : " +Arrays.toString(even));
-	
-	//Odd Numbers
-        int odd[]=Arrays.stream(a).filter(e->e%2!=0).distinct().toArray();
-        System.out.println("Odd : " +Arrays.toString(odd));
-	//Square
- 	 int square[]=Arrays.stream(a).map(e->e*e).toArray();
-        System.out.println("Square Array : " + Arrays.toString(square));
-    }
+public class SingleArray {
+	public static void main(String[] args) {
+		int[] a = { 1, 2, 2, 3, 4, 4, 4, 5 };
+		List<Integer> sorted = Arrays.stream(a).boxed().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+		System.out.println(sorted);
+	}
 }
+---------------------
+Check if an array contains a specific value.
+---------------------
+
+---------------------
+Find the index of a specific element in an array.
+Count the number of even and odd numbers in an array.
+--------------------
+
 --------------------
 Frequency of elements in an array
 --------------------
@@ -106,15 +108,86 @@ public class SingleArray {
 
 --------------------
 Remove duplicates from an array.
-Find the frequency of each element in an array.
+--------------------
+package com.practice.array;
+
+import java.util.Arrays;
+
+public class SingleArray {
+	public static void main(String[] args) {
+		int[] a = { 1, 2, 2, 3, 4, 4, 4, 5 };
+		int unique[] = Arrays.stream(a).distinct().toArray();
+		System.out.println(Arrays.toString(unique));
+	}
+}
+--------------------
 Sort an array in ascending or descending order.
+--------------------
+package com.practice.array;
+
+import java.util.Arrays;
+
+public class SingleArray {
+	public static void main(String[] args) {
+		int[] a = { 1, 2, 2, 3, 4, 4, 4, 5 };
+		int sort[] = Arrays.stream(a).distinct().sorted().toArray();
+		Object[] rev = Arrays.stream(a).distinct().boxed().sorted(Comparator.reverseOrder()).toArray();
+		System.out.println(Arrays.toString(rev));
+		System.out.println(Arrays.toString(sort));
+	}
+}
+--------------------
 Merge two sorted arrays into a single sorted array.
+--------------------
+package com.practice.array;
+
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
+public class TwoArray {
+	public static void main(String[] args) {
+		int[] arr1 = { 1, 2, 3, 4, 5 };
+		int[] arr2 = { 3, 4, 5, 6, 7 };
+		int[] c = IntStream.concat(Arrays.stream(arr2), Arrays.stream(arr1)).distinct().sorted().toArray();
+		System.out.println(Arrays.toString(c));
+	}
+}
+--------------------
 Find the intersection of two arrays.
+--------------------
+package com.practice.array;
+
+import java.util.Arrays;
+
+public class TwoArray {
+	public static void main(String[] args) {
+		Integer[] arr1 = { 1, 2, 3, 4, 5, 6 };
+		Integer[] arr2 = { 4, 5, 6, 7, 8 };
+		Object[] intersection = Arrays.stream(arr1).filter(x -> Arrays.stream(arr2).anyMatch(y -> x == y)).distinct()
+				.toArray();
+		System.out.println(Arrays.toString(intersection));
+	}
+}
+--------------------
 Find the union of two arrays.
+--------------------
+package com.practice.array;
+
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
+public class TwoArray {
+	public static void main(String[] args) {
+		int[] arr1 = { 1, 2, 3, 4, 5, 6 };
+		int[] arr2 = { 4, 5, 6, 7, 8 };
+		int a[] = IntStream.concat(Arrays.stream(arr1), Arrays.stream(arr2)).toArray();
+		System.out.println(Arrays.toString(a));
+	}
+}
+--------------------
 Rotate an array to the left or right by a given number of positions.
-Find the maximum and minimum element in an array using the minimum number of comparisons.
 Find the kth largest element in an array.
-Find the kth smallest element in an array.
+
 Find all pairs of integers in an array whose sum is equal to a given number.
 Find the missing number in an array of integers from 1 to N.
 Find the duplicate number in an array of integers from 1 to N.
