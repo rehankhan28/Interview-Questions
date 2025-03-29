@@ -36,9 +36,6 @@ Used to define a Spring-managed bean inside a @Configuration class.
 @GetMapping, @PostMapping, @PutMapping, @DeleteMapping
 Simplifies mapping HTTP methods to controller methods.
 
-java
-Copy
-Edit
 @RestController
 @RequestMapping("/api")
 public class UserController {
@@ -60,9 +57,6 @@ Handles exceptions at the controller level.
 @ControllerAdvice
 Global exception handling for all controllers.
 
-java
-Copy
-Edit
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -139,23 +133,30 @@ Used for testing controllers.
 Few important features of Spring Boot are as follows:
 1.	Spring CLI – Spring Boot CLI allows you to Groovy for writing Spring boot application and avoids boilerplate code.
 2.	Starter Dependency – With the help of this feature, Spring Boot aggregates common dependencies together and eventually improves productivity
-3.	Auto-Configuration – The auto-configuration feature of Spring Boot helps in loading the default configurations according to the project you are working on. In this way, you can avoid any unnecessary WAR files.
-4.	Spring Initializer – This is basically a web application, which can create an internal project structure for you. So, you do not have to manually set up the structure of the project, instead, you can use this feature.
+3.	Auto-Configuration – The auto-configuration feature of Spring Boot helps in loading the default configurations according to the project you are working on. In this way, 
+    you can avoid any unnecessary WAR files.
+4.	Spring Initializer – This is basically a web application, which can create an internal project structure for you. So, you do not have to manually set up the structure
+    of the project, instead, you can use this feature.
 5.	Spring Actuator – This feature provides help while running Spring Boot applications.
 6.	Logging and Security – The logging and security feature of Spring Boot, ensures that all the applications made using Spring Boot are properly secured without any hassle.
-7.	Spring Initializr - is a web-based tool that helps developers bootstrap new Spring Boot projects quickly by generating a project structure with the desired dependencies and configurations
+7.	Spring Initializr - is a web-based tool that helps developers bootstrap new Spring Boot projects quickly by generating a project structure with the desired dependencies
+    and configurations
 --------------------------
 What is the need for Spring Boot DevTools?
 1. Automatic Restart
-DevTools provides an automatic restart feature that triggers a restart of the application whenever files on the classpath change. This allows developers to see their changes reflected immediately without manually restarting the application, significantly speeding up the development process.
+    DevTools provides an automatic restart feature that triggers a restart of the application whenever files on the classpath change. This allows developers to see their
+    changes reflected immediately without manually restarting the application, significantly speeding up the development process.
 2. LiveReload Support
-The module includes an embedded LiveReload server that can automatically refresh the browser whenever resources are updated. This feature eliminates the need to manually refresh the browser, improving productivity during front-end development.
+    The module includes an embedded LiveReload server that can automatically refresh the browser whenever resources are updated. This feature eliminates the need to manually
+    refresh the browser, improving productivity during front-end development.
 3. Disabling Caching
-During development, caching can prevent developers from seeing their changes immediately. DevTools automatically disables caching for template engines like Thymeleaf and Freemarker, ensuring that developers always see the latest changes without needing to configure cache settings manually.
+    During development, caching can prevent developers from seeing their changes immediately. DevTools automatically disables caching for template engines like Thymeleaf
+    and Freemarker, ensuring that developers always see the latest changes without needing to configure cache settings manually.
 4. Improved Configuration Management
-DevTools simplifies configuration management by providing sensible defaults for various properties during development. For instance, it disables certain caching options and automatically applies settings that enhance the development experience.
+    DevTools simplifies configuration management by providing sensible defaults for various properties during development. For instance, it disables certain caching options
+    and automatically applies settings that enhance the development experience.
 5. Global Settings Configuration
-Developers can create a global settings file (.spring-boot-devtools.properties) in their home directory to apply common configurations across all Spring Boot applications using DevTools. This reduces repetitive configuration efforts for new projects.
+    Developers can create a global settings file (.spring-boot-devtools.properties) in their home directory to apply common configurations across all Spring Boot applications using DevTools. This reduces repetitive configuration efforts for new projects.
 ----------------------------
 What do you think is the need for Profiles?
 Profiles are used to provide a way to segregate the different parts of the application configuration and make it available for various environments. So, basically, any @Component or a @Configuration can be marked with a @Profile to limit as it is loaded. Consider you have multiple environments,
@@ -163,7 +164,8 @@ Profiles are used to provide a way to segregate the different parts of the appli
 •	QA
 •	Stage
 •	Production
-Now, let’s say, you want to have different application configuration in each of the environments, you can use profiles to have different application configurations for different environments. So, basically, Spring and Spring Boot provide features through which you can specify:
+    Now, let’s say, you want to have different application configuration in each of the environments, you can use profiles to have different application configurations for
+    different environments. So, basically, Spring and Spring Boot provide features through which you can specify:
 •	The active profile for a specific environment
 •	The configuration of various environments for various profiles.
 --------------------------------
@@ -173,118 +175,192 @@ A framework for creating standalone, production-grade Spring applications with m
 Advantages of Spring Boot?
 
 Auto-configuration
-
 Embedded servers (Tomcat/Jetty)
-
 Starter dependencies
-
 No XML configuration
-
 Actuator for monitoring
-
+--------------------------------
 What is @SpringBootApplication?
 A combination of:
-
 @Configuration (class as config source)
-
 @EnableAutoConfiguration (auto-configuration)
-
 @ComponentScan (auto-detection of components)
-
+--------------------------------
 Embedded Servers in Spring Boot?
 Tomcat (default), Jetty, or Undertow. Configure via pom.xml/build.gradle.
-
+--------------------------------
 What is Spring Boot Actuator?
 Provides production-ready features (health checks, metrics, env details) via endpoints like /actuator/health.
-
+--------------------------------
 Intermediate Questions
 How to change the embedded server port?
 server.port=8081 in application.properties.
-
+--------------------------------
 Difference between @Controller and @RestController?
-
 @Controller: Returns view names (MVC).
-
 @RestController: Returns JSON/XML (REST APIs, combines @Controller + @ResponseBody).
-
+--------------------------------
 What is application.properties vs application.yml?
 Both configure app properties. YAML is more readable for hierarchical data.
-
+--------------------------------
 How to exclude auto-configuration?
-
-java
-Copy
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 What is Spring Boot DevTools?
 Developer tools for auto-restart, live reload, and property defaults.
-
+--------------------------------
 Dependency Injection & Beans
 What is @Autowired?
 Injects dependencies automatically (by type).
-
+--------------------------------
 Difference between @Component, @Service, @Repository?
 All are stereotypes:
 
 @Repository (DAO layer, translates DB exceptions)
-
 @Service (business logic)
-
 @Component (generic Spring-managed bean)
-
+--------------------------------
 What is @Bean?
 A method-level annotation to declare a Spring bean (used in @Configuration classes).
-
+--------------------------------
 What is @Primary?
 Indicates the preferred bean when multiple candidates exist for autowiring.
+--------------------------------
+@Primary – Specifies the default bean when multiple beans are available.
+When multiple beans of the same type exist, but one should be used by default.
 
+@Order – Defines the execution order when injecting lists of beans.
+Use Case: When injecting multiple beans of the same type into a collection.
+Priority: The lower the value, the higher the priority.
+
+@Qualifier – Explicitly specifies which bean to use when multiple options exist.
+Use Case: When multiple beans exist, and you manually specify which one to inject.
+Priority: Overrides @Primary (if present).
+--------
 Spring Boot Data & JPA
 What is Spring Data JPA?
 Simplifies JPA repositories (e.g., CrudRepository, JpaRepository).
-
+--------------------------------
 How to create a custom query in Spring Data JPA?
 
-java
-Copy
 @Query("SELECT u FROM User u WHERE u.email = ?1")
 User findByEmail(String email);
+--------------------------------
 What is @Transactional?
 Defines transaction boundaries (methods execute within a DB transaction).
-
+--------------------------------
 Difference between save() and saveAndFlush()?
 
 save(): Queues the operation.
-
 saveAndFlush(): Immediately writes to DB.
-
+--------------------------------
 REST & Web
+--------------------------------
 What is @RequestMapping?
 Maps HTTP requests to handler methods (superseded by @GetMapping, @PostMapping, etc.).
 
+@RequestMapping is an annotation in Spring Boot used to map HTTP requests to specific handler methods in a controller.
+It helps in defining routes for a web application.
+--------------------------------
 How to handle exceptions in Spring Boot?
 Use @ControllerAdvice + @ExceptionHandler.
+The @ExceptionHandler annotation is used to handle specific exceptions inside a controller.
 
+@RestController
+@RequestMapping("/users")
+public class UserController {
+    private final UserService userService;
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+    @GetMapping("/{id}")
+    public User getUser(@PathVariable Long id) {
+        return userService.getUserById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id " + id));
+    }
+    // Exception handler for this controller
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<String> handleNotFoundException(ResourceNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+}
+
+Using @ControllerAdvice (Global Exception Handling)
+If you want to handle exceptions globally across multiple controllers, use @ControllerAdvice.
+
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<String> handleNotFoundException(ResourceNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<String> handleIllegalArgumentException(IllegalArgumentException ex) {
+        return new ResponseEntity<>("Invalid argument: " + ex.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<String> handleGeneralException(Exception ex) {
+        return new ResponseEntity<>("Something went wrong!", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+}
+--------------------------------
+Handling Validation Errors (Spring Boot + Bean Validation)
+If you use @Valid or @Validated, validation errors can be handled easily.
+
+Example: Validating User DTO
+public class UserDTO {
+    @NotBlank(message = "Name is required")
+    private String name;
+
+    @Email(message = "Invalid email format")
+    private String email;
+
+    @Min(value = 18, message = "Age must be at least 18")
+    private int age;
+    
+    // Getters and Setters
+}
+--------------------------------
+Controller with Validation
+@PostMapping("/users")
+public ResponseEntity<String> createUser(@Valid @RequestBody UserDTO user) {
+    return ResponseEntity.ok("User created successfully!");
+}
+--------------------------------
+Handling Validation Errors Globally
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Map<String, String>> handleValidationExceptions(MethodArgumentNotValidException ex) {
+        Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult().getFieldErrors().forEach(error -> 
+            errors.put(error.getField(), error.getDefaultMessage())
+        );
+        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+    }
+}
+
+--------------------------------
 What is CORS? How to enable it?
 Cross-Origin Resource Sharing. Enable via:
-
-java
-Copy
+--------------------------------
 @CrossOrigin(origins = "http://example.com")
 How to validate request bodies?
 Use @Valid on @RequestBody and JSR-303 annotations (@NotNull, @Size).
-
+--------------------------------
 Security
 How to secure a Spring Boot app?
 Use Spring Security (e.g., spring-boot-starter-security).
-
+--------------------------------
 What is JWT? How to implement it?
 JSON Web Token for stateless auth. Use libraries like jjwt.
-
+--------------------------------
 Difference between authentication and authorization?
 
 Authentication: Verifies identity (e.g., login).
 
 Authorization: Checks permissions (e.g., admin access).
-
+--------------------------------
 Advanced Questions
 How to externalize configuration?
 Use @ConfigurationProperties or @Value with application.properties.
